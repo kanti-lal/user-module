@@ -20,7 +20,6 @@ type User = {
   uid: string;
   email: string;
   displayName: string;
-  photoURL: string;
 };
 
 type UserAuthContextType = {
@@ -58,7 +57,7 @@ export function UserAuthContextProvider({ children }: { children: ReactNode }) {
   }
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+    const unsubscribe = onAuthStateChanged(auth, (currentUser: any) => {
       setUser(currentUser);
       setPending(false) 
     });
