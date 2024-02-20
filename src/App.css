@@ -12,6 +12,8 @@ body {
   border-radius: 5px;
 }
 
+/* pagination */
+
 .pagination {
   display: flex;
   justify-content: center;
@@ -20,7 +22,7 @@ body {
 
 .pagination button {
   margin: 0 5px;
-  padding: 5px 12px;
+  padding: 5px 13px;
   border: 1px solid #ccc;
   border-radius: 5px;
   background-color: #f8f9fa;
@@ -70,12 +72,14 @@ body {
     transparent 0%,
     #a3a5a7 25%,
     #eaeaea 50%,
-    #f6f7f8   75%,
+    #f6f7f8 75%,
     transparent 100%
   );
   background-size: 400% 100%;
-  animation: shimmer 5s infinite;
+  animation: shimmer 7s infinite;
 }
+
+/* table css */
 
 table {
   width: 100%;
@@ -94,12 +98,12 @@ td {
   top: 20px;
   height: 80px;
   overflow-y: auto;
- 
 }
 .search-bar {
   width: 100%;
 }
 
+/* auth css */
 .auth-container {
   display: flex;
   justify-content: center;
@@ -121,7 +125,7 @@ td {
   }
 }
 
-
+/* responsive for mobile auth css */
 @media (max-width: 768px) {
   .auth-form {
     width: 90%;

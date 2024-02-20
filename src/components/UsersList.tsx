@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { User } from "./Dashboard";
 
 const UsersList = ({ users }: { users: User[] }) => {
-  const [loading, setLoading] = useState(true);
   const [sortBy, setSortBy] = useState<keyof User>("id");
   const [sortOrder, setSortOrder] = useState<"asc" | "desc">("asc");
   const [searchTerms, setSearchTerms] = useState<{ [key: string]: string }>({

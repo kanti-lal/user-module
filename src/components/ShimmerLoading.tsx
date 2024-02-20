@@ -5,6 +5,7 @@ const ShimmerLoading = () => {
       <div className="shimmer"></div>
       <div className="shimmer"></div>
       <div className="shimmer"></div>
+      <div className="shimmer"></div>
     </div>
   );
 };

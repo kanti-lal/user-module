@@ -4,7 +4,7 @@ import { Form, Alert, Button } from "react-bootstrap";
 import { useUserAuth } from "../context/UserAuthContext";
 import { addDoc, collection } from "firebase/firestore";
 import { updateProfile } from "firebase/auth";
-import { auth, db } from "../firebase";
+import { db } from "../firebase";
 
 const Signup = () => {
   const [email, setEmail] = useState<string>("");
@@ -20,7 +20,6 @@ const Signup = () => {
     setError("");
     try {
       const user: any = await signUp(email, password);
-
       updateProfile(user.user, {
         displayName: firstName + " " + lastName,
       });
