@@ -12,12 +12,14 @@ const Signup = () => {
   const [firstName, setFirstName] = useState<string>("");
   const [lastName, setLastName] = useState<string>("");
   const [password, setPassword] = useState<string>("");
+  const [loading, setLoading] = useState(false);
   const { signUp } = useUserAuth();
   const navigate = useNavigate();
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setError("");
+    setLoading(true);
     try {
       const user: any = await signUp(email, password);
       updateProfile(user.user, {
@@ -38,6 +40,9 @@ const Signup = () => {
       navigate("/");
     } catch (err: any) {
       setError(err.message);
+    }
+    finally {
+      setLoading(false); 
     }
   };
 
@@ -82,8 +87,8 @@ const Signup = () => {
           </Form.Group>
 
           <div className="d-grid gap-2">
-            <Button variant="primary" type="submit">
-              Sign up
+            <Button variant="primary" type="submit" disabled={loading}>
+            {loading ? "Signing Up..." : "Sign up"}
             </Button>
           </div>
         </Form>

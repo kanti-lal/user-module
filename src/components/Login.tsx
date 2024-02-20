@@ -8,12 +8,15 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
+
   const { logIn } = useUserAuth();
   const navigate = useNavigate();
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setError("");
+    setLoading(true);
     try {
       await logIn(email, password);
       navigate("/");
@@ -23,6 +26,8 @@ const Login = () => {
       } else {
         setError("An unknown error occurred.");
       }
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -49,8 +54,8 @@ const Login = () => {
           </Form.Group>
 
           <div className="d-grid gap-2">
-            <Button variant="primary" type="submit">
-              Log In
+            <Button variant="primary" type="submit" disabled={loading}>
+              {loading ? "Logging In..." : "Log In"}
             </Button>
           </div>
         </Form>
