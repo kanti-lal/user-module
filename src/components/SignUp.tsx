@@ -40,9 +40,8 @@ const Signup = () => {
       navigate("/");
     } catch (err: any) {
       setError(err.message);
-    }
-    finally {
-      setLoading(false); 
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -88,7 +87,7 @@ const Signup = () => {
 
           <div className="d-grid gap-2">
             <Button variant="primary" type="submit" disabled={loading}>
-            {loading ? "Signing Up..." : "Sign up"}
+              {loading ? "Signing Up..." : "Sign up"}
             </Button>
           </div>
         </Form>
